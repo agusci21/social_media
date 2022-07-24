@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/src/ui/screens/login_register_screens/components/backgrounded_scaffold.dart';
 import 'package:social_media/src/ui/screens/login_register_screens/components/inputs_box.dart';
 
 import 'package:social_media/src/ui/screens/login_register_screens/login_screen/components/login_background.dart';
@@ -8,10 +9,13 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+    final size = MediaQuery.of(context).size;
     final inputs = [
       Container(
         width: 300,
-        margin: const EdgeInsets.only(bottom: 5),
+        margin: const EdgeInsets.only(bottom: 10),
         child: TextField(
           decoration: InputDecoration(
               labelText: 'E-mail',
@@ -22,7 +26,7 @@ class LoginScreen extends StatelessWidget {
       ),
       Container(
         width: 300,
-        margin: const EdgeInsets.only(bottom: 5),
+        margin: const EdgeInsets.only(bottom: 10),
         child: TextField(
           decoration: InputDecoration(
               labelText: 'Password',
@@ -32,14 +36,14 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     ];
-    return Scaffold(
-        body: Stack(
+    return BackgroundedScaffold(
+      background: const LoginBackGround(),
       children: [
-        const LoginBackGround(),
         InputsBox(
           inputs: inputs,
+          margin: EdgeInsets.zero,
         ),
       ],
-    ));
+    );
   }
 }
