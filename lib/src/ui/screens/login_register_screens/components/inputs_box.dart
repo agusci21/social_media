@@ -7,7 +7,6 @@ class InputsBox extends StatelessWidget {
   final EdgeInsets? margin;
   @override
   Widget build(BuildContext context) {
-    
     final size = MediaQuery.of(context).size;
     return Container(
       margin: margin ??
