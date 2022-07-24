@@ -1,27 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/src/ui/screens/login_register_screens/components/backgrounded_scaffold.dart';
-import 'package:social_media/src/ui/screens/login_register_screens/components/inputs_box.dart';
 import 'package:social_media/src/ui/screens/login_register_screens/components/login_register_bottom.dart';
 import 'package:social_media/src/ui/screens/login_register_screens/components/login_register_input.dart';
-
 import 'package:social_media/src/ui/screens/login_register_screens/login_screen/components/login_background.dart';
-import 'package:social_media/src/ui/screens/login_register_screens/login_screen/controllers/login_screen_controllers.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return BackgroundedScaffold(
       background: const LoginBackGround(),
-      floatingActionButton: TextButton(
-        onPressed: () => LoginScreenControllers.goToRegisterScreen(context),
-        child: Text(
-          'Crear una cuenta',
-          style: TextStyle(color: Colors.pink.shade800, fontSize: 17),
-        ),
+      floatingActionButton: Text(
+        'Iniciar sesión',
+        style: TextStyle(color: Colors.pink.shade800, fontSize: 17),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       children: [
@@ -29,7 +22,7 @@ class LoginScreen extends StatelessWidget {
           height: size.height * .2,
         ),
         Text(
-          'Iniciar sesión',
+          'Crear una cuenta',
           style: TextStyle(color: Colors.pink.shade800, fontSize: 30),
         ),
         SizedBox(
@@ -42,6 +35,14 @@ class LoginScreen extends StatelessWidget {
         const LoginRegisterInput(
           labelText: 'Password',
           prefixIcon: Icon(Icons.lock_outline_sharp),
+        ),
+        const LoginRegisterInput(
+          labelText: 'Nombre',
+          prefixIcon: Icon(Icons.person),
+        ),
+        const LoginRegisterInput(
+          labelText: 'Alias',
+          prefixIcon: Icon(Icons.person_outline_rounded),
         ),
         const LoginRegisterBottom()
       ],
