@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social_media/src/controllers/screens/login_register_screens/login_regiuster_bloc/login_register_bloc.dart';
 import 'package:social_media/src/ui/screens/login_register_screens/components/backgrounded_scaffold.dart';
-import 'package:social_media/src/ui/screens/login_register_screens/components/inputs_box.dart';
 import 'package:social_media/src/ui/screens/login_register_screens/components/login_register_bottom.dart';
 import 'package:social_media/src/ui/screens/login_register_screens/components/login_register_input.dart';
 
 import 'package:social_media/src/ui/screens/login_register_screens/login_screen/components/login_background.dart';
-import 'package:social_media/src/ui/screens/login_register_screens/login_screen/controllers/login_screen_controllers.dart';
+import 'package:social_media/src/controllers/screens/login_register_screens/login_screen_controller.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return BackgroundedScaffold(
       background: const LoginBackGround(),
       floatingActionButton: TextButton(
@@ -35,15 +34,20 @@ class LoginScreen extends StatelessWidget {
         SizedBox(
           height: size.height * .1,
         ),
-        const LoginRegisterInput(
+        LoginRegisterInput(
           labelText: 'E-mail',
-          prefixIcon: Icon(Icons.alternate_email),
+          controller: context.read<LoginRegisterBloc>().emailController,
+          prefixIcon: const Icon(Icons.alternate_email),
         ),
-        const LoginRegisterInput(
+        LoginRegisterInput(
           labelText: 'Password',
-          prefixIcon: Icon(Icons.lock_outline_sharp),
+          controller: context.read<LoginRegisterBloc>().passwordController,
+          prefixIcon: const Icon(Icons.lock_outline_sharp),
         ),
-        const LoginRegisterBottom()
+        LoginRegisterBottom(
+          text: 'Iniciar sesión',
+          onTap: (){},
+        )
       ],
     );
   }
