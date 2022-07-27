@@ -6,6 +6,3 @@ abstract class LoginRegisterEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
-
-class Register extends LoginRegisterEvent {}
-class Login extends LoginRegisterEvent {}

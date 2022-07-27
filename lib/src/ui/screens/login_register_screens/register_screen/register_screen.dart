@@ -59,7 +59,7 @@ class RegisterScreen extends StatelessWidget {
         ),
         LoginRegisterBottom(
           text: 'Registrarse',
-          onTap: () => context.read<LoginRegisterBloc>().add(Register()),
+          onTap: () => RegisterScreenController.register(context),
         )
       ],
     );

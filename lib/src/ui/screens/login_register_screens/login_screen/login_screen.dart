@@ -46,7 +46,7 @@ class LoginScreen extends StatelessWidget {
         ),
         LoginRegisterBottom(
           text: 'Iniciar sesión',
-          onTap: () => context.read<LoginRegisterBloc>().add(Login()),
+          onTap: () => LoginScreenControllers.signIn(context),
         )
       ],
     );
