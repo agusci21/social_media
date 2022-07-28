@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Social Media',
           routes: routes,
-          initialRoute: 'loading',
+          initialRoute: 'login',
         ));
   }
 }
