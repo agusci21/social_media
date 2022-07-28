@@ -10,7 +10,8 @@ class User {
   String email;
   String name;
   String password;
-
+  String? token;
+  int? id;
   Map<String, dynamic> toMap() {
     return {
       'alias': alias,

@@ -11,13 +11,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
-          BlocProvider(create: (BuildContext context) => LoginRegisterBloc())
+          BlocProvider(create: (BuildContext context) => LoginRegisterBloc()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Social Media',
           routes: routes,
-          initialRoute: 'login',
+          initialRoute: 'loading',
         ));
   }
 }

@@ -45,6 +45,7 @@ class RegisterScreen extends StatelessWidget {
         LoginRegisterInput(
           labelText: 'Password',
           controller: context.read<LoginRegisterBloc>().passwordController,
+          obscureText: true,
           prefixIcon: const Icon(Icons.lock_outline_sharp),
         ),
         LoginRegisterInput(
