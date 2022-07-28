@@ -7,7 +7,7 @@ abstract class TokenHelper{
     sharedPreferencies.setString('token', token);
     readAndLoadToken();
   }
-  static  readAndLoadToken() async {
+  static Future<void> readAndLoadToken() async {
     final sharedPreferencies = await SharedPreferences.getInstance();
     token = sharedPreferencies.getString('token');
   }
