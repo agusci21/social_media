@@ -38,7 +38,7 @@ class User {
     
   }
 
-  static late final User currentUser;
+  static User? currentUser;
 
   String toJson() => json.encode(toMap());
 

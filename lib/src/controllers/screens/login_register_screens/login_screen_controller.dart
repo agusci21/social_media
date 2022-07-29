@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/src/controllers/helpers/token_helpers/token_helpers.dart';
 import 'package:social_media/src/controllers/screens/login_register_screens/login_regiuster_bloc/login_register_bloc.dart';
 import 'package:social_media/src/core/enviroment.dart';
+import 'package:social_media/src/models/user.dart';
 
 abstract class LoginScreenControllers {
   static void goToRegisterScreen(BuildContext context) {
@@ -25,6 +26,7 @@ abstract class LoginScreenControllers {
     final Map<String, dynamic> data =
         json.decode(response.body) as Map<String, dynamic>;
     if(response.statusCode == 200) TokenHelper.saveToken(data['token']);
+    User.loadCurrentUser(response);
     return response;
   }
 
