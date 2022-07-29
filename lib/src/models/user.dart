@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:http/http.dart';
+
 class User {
   User(
       {required this.alias,
@@ -29,6 +31,14 @@ class User {
       password: map['password'] ?? '',
     );
   }
+
+  static loadCurrentUser(Response response){
+    final data = json.decode(response.body) as Map<String, dynamic>;
+     currentUser = User.fromMap(data);
+    
+  }
+
+  static late final User currentUser;
 
   String toJson() => json.encode(toMap());
 
