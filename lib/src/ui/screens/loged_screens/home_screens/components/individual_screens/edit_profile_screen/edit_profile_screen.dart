@@ -11,6 +11,7 @@ class EditProfileScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(
               width: double.infinity,
@@ -19,6 +20,7 @@ class EditProfileScreen extends StatelessWidget {
             const TextInput(labelText: 'Nombre'),
             const TextInput(labelText: 'Apellido'),
             const TextInput(labelText: 'Alias'),
+            Spacer(),
             GeneralButton(
               onTap: () {},
               text: 'Modificar datos',
@@ -28,9 +30,7 @@ class EditProfileScreen extends StatelessWidget {
                   bottom: 5),
               width: MediaQuery.of(context).size.width * .8,
             ),
-            const SizedBox(
-              height: 5,
-            ),
+            const SizedBox(height: 5),
             GeneralButton(
               onTap: () {},
               text: 'Cerrar sesión',
@@ -40,7 +40,8 @@ class EditProfileScreen extends StatelessWidget {
                   top: 5,
                   bottom: 5),
               width: MediaQuery.of(context).size.width * .8,
-            )
+            ),
+            const SizedBox(height: 5),
           ],
         ),
       ),
