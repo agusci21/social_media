@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/src/controllers/screens/loged_screens/individual_screens/main_profile_screen/main_profile_screen_controller.dart';
 import 'package:social_media/src/models/user.dart';
 import 'package:social_media/src/ui/screens/loged_screens/home_screens/components/circular_photo.dart';
 
@@ -28,9 +29,8 @@ class ProfileScreenHeader extends StatelessWidget {
                     const TextStyle(fontSize: 25, fontWeight: FontWeight.w300),
               ),
               GestureDetector(
-                onTap: () {
-                  //TODO: implementar la navegacion de pantalla
-                },
+                onTap: () =>
+                    MainProfileScreenController.navigateToEditProfile(context),
                 child: Container(
                   margin: const EdgeInsets.only(top: 10),
                   padding: const EdgeInsets.all(10),

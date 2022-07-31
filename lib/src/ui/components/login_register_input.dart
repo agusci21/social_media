@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LoginRegisterInput extends StatelessWidget {
-  const LoginRegisterInput(
+class TextInput extends StatelessWidget {
+  const TextInput(
       {required this.labelText,
       this.controller,
       this.prefixIcon,
