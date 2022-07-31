@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social_media/src/controllers/screens/loged_screens/nav_bar_bloc/nav_bar_bloc.dart';
-import 'package:social_media/src/ui/screens/loged_screens/home_screen/components/home_nav_bar.dart';
-import 'package:social_media/src/ui/screens/loged_screens/home_screen/components/profile_section/main_profile_section.dart';
+import 'package:social_media/src/ui/screens/loged_screens/home_screens/components/home_nav_bar.dart';
+import 'package:social_media/src/ui/screens/loged_screens/home_screens/components/individual_screens/profile_screen/main_profile_section.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

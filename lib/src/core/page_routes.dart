@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/src/ui/screens/auxiliar_screens/loading_screen.dart';
-import 'package:social_media/src/ui/screens/loged_screens/home_screen/home_screen.dart';
+import 'package:social_media/src/ui/screens/loged_screens/home_screens/home_screen.dart';
 
 import 'package:social_media/src/ui/screens/login_register_screens/login_screen/login_screen.dart';
 import 'package:social_media/src/ui/screens/login_register_screens/register_screen/register_screen.dart';
