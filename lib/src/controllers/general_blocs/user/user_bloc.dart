@@ -7,7 +7,6 @@ part 'user_state.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc() : super(UserInitial(User.currentUser)) {
-    print(state.user!.toJson());
     on<UserEvent>((event, emit) {});
   }
 }

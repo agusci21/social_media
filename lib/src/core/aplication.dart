@@ -5,14 +5,12 @@ import 'package:social_media/src/controllers/helpers/token_helpers/token_helpers
 import 'package:social_media/src/controllers/screens/login_register_screens/login_regiuster_bloc/login_register_bloc.dart';
 
 import 'package:social_media/src/core/page_routes.dart';
-import 'package:social_media/src/models/user.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    print('IS NULL USER: ${User.currentUser == null}');
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (BuildContext context) => LoginRegisterBloc()),

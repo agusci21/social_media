@@ -26,8 +26,9 @@ abstract class LoginScreenControllers {
         headers: {'Content-Type': 'application/json'});
     final Map<String, dynamic> data =
         json.decode(response.body) as Map<String, dynamic>;
+      final decodedData = data['user'] as Map<String, dynamic>;
     if (response.statusCode == 200) TokenHelper.saveToken(data['token']);
-    User.loadCurrentUser(response);
+    User.currentUser = User.fromMap(decodedData);
     return response;
   }
 

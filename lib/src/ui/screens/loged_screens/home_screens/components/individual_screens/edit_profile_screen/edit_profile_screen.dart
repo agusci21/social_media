@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:social_media/src/controllers/helpers/token_helpers/token_helpers.dart';
 import 'package:social_media/src/controllers/screens/loged_screens/individual_screens/edit_profile_screen/edit_profile_screen_controller.dart';
 import 'package:social_media/src/ui/components/general_button.dart';
 import 'package:social_media/src/ui/components/login_register_input.dart';
