@@ -9,6 +9,7 @@ import 'package:social_media/src/controllers/helpers/token_helpers/token_helpers
 import 'package:social_media/src/controllers/screens/login_register_screens/login_regiuster_bloc/login_register_bloc.dart';
 import 'package:social_media/src/core/enviroment.dart';
 import 'package:social_media/src/models/user.dart';
+import 'package:social_media/src/ui/screens/loged_screens/home_screens/home_screen.dart';
 
 abstract class LoginScreenControllers {
   static void goToRegisterScreen(BuildContext context) {
@@ -25,7 +26,7 @@ abstract class LoginScreenControllers {
         headers: {'Content-Type': 'application/json'});
     final Map<String, dynamic> data =
         json.decode(response.body) as Map<String, dynamic>;
-    if(response.statusCode == 200) TokenHelper.saveToken(data['token']);
+    if (response.statusCode == 200) TokenHelper.saveToken(data['token']);
     User.loadCurrentUser(response);
     return response;
   }
@@ -38,6 +39,10 @@ abstract class LoginScreenControllers {
   }
 
   static void navigatoToHomeScreen(BuildContext context) {
-    Navigator.pushReplacementNamed(context, 'home');
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
+        ));
   }
 }

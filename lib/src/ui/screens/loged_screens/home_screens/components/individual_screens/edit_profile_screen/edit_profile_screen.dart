@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/src/controllers/helpers/token_helpers/token_helpers.dart';
+import 'package:social_media/src/controllers/screens/loged_screens/individual_screens/edit_profile_screen/edit_profile_screen_controller.dart';
 import 'package:social_media/src/ui/components/general_button.dart';
 import 'package:social_media/src/ui/components/login_register_input.dart';
 import 'package:social_media/src/ui/screens/loged_screens/home_screens/components/circular_photo.dart';
@@ -20,7 +22,7 @@ class EditProfileScreen extends StatelessWidget {
             const TextInput(labelText: 'Nombre'),
             const TextInput(labelText: 'Apellido'),
             const TextInput(labelText: 'Alias'),
-            Spacer(),
+            const Spacer(),
             GeneralButton(
               onTap: () {},
               text: 'Modificar datos',
@@ -32,7 +34,7 @@ class EditProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             GeneralButton(
-              onTap: () {},
+              onTap: () => EditProfileScreenController.closeSesion(context),
               text: 'Cerrar sesión',
               color: Colors.grey.shade700,
               padding: EdgeInsets.only(
