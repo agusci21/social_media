@@ -7,12 +7,12 @@ class User {
       {required this.alias,
       required this.email,
       required this.name,
-      required this.password});
+      this.password,
+      this.id});
   String alias;
   String email;
   String name;
-  String password;
-  String? token;
+  String? password;
   int? id;
   Map<String, dynamic> toMap() {
     return {
@@ -25,6 +25,7 @@ class User {
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
+      id: map['id'],
       alias: map['alias'] ?? '',
       email: map['email'] ?? '',
       name: map['name'] ?? '',
@@ -32,10 +33,9 @@ class User {
     );
   }
 
-  static loadCurrentUser(Response response){
+  static loadCurrentUser(Response response) {
     final data = json.decode(response.body) as Map<String, dynamic>;
-     currentUser = User.fromMap(data);
-    
+    currentUser = User.fromMap(data);
   }
 
   static User? currentUser;
