@@ -16,27 +16,34 @@ abstract class LoginScreenControllers {
     Navigator.pushReplacementNamed(context, 'register');
   }
 
-  static Future<http.Response> _login(String email, String password) async {
-    final body = json.encode({'email': email, 'password': password});
+  static Future<void> signIn(BuildContext context) async {
+    final body = json.encode({
+      'email': context.read<LoginRegisterBloc>().emailController.text,
+      'password': context.read<LoginRegisterBloc>().passwordController.text
+    });
     final response = await http.post(
         Uri.parse(
           '${Enviroment.authUrl}/login',
         ),
         body: body,
-        headers: {'Content-Type': 'application/json'});
+        headers: Enviroment.headers);
+    if (response.statusCode != 200) {
+      if (response.statusCode == 400) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text('Contraseña invalida')));
+      }
+      if (response.statusCode == 404) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('E-mail no registrado')));
+      }
+      return;
+    }
     final Map<String, dynamic> data =
         json.decode(response.body) as Map<String, dynamic>;
-      final decodedData = data['user'] as Map<String, dynamic>;
-    if (response.statusCode == 200) TokenHelper.saveToken(data['token']);
+    final decodedData = data['user'] as Map<String, dynamic>;
     User.currentUser = User.fromMap(decodedData);
-    return response;
-  }
-
-  static void signIn(BuildContext context) async {
-    final response = await _login(
-        context.read<LoginRegisterBloc>().emailController.text,
-        context.read<LoginRegisterBloc>().passwordController.text);
-    if (response.statusCode == 200) navigatoToHomeScreen(context);
+    TokenHelper.saveToken(data['token']);
+    navigatoToHomeScreen(context);
   }
 
   static void navigatoToHomeScreen(BuildContext context) {

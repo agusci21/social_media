@@ -47,7 +47,7 @@ class LoginScreen extends StatelessWidget {
         ),
         GeneralButton(
           text: 'Iniciar sesión',
-          onTap: () => LoginScreenControllers.signIn(context),
+          onTap: () async => await LoginScreenControllers.signIn(context),
         )
       ],
     );

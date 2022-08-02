@@ -26,7 +26,7 @@ abstract class RegisterScreenController {
         ),
         body: user.toJson(),
         headers: {'Content-Type': 'application/json'});
-    LoginScreenControllers.signIn(context);
+    await LoginScreenControllers.signIn(context);
     return response;
   }
 }
